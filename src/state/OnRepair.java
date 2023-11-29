@@ -3,7 +3,7 @@ package state;
 import exceptions.CustomException;
 import model.Truck;
 
-public class OnRepair implements State{
+public class OnRepair implements State {
     @Override
     public void changeDriver(Truck truck) throws CustomException {
         throw new CustomException("Нельзя сменить водителя");

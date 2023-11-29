@@ -7,8 +7,15 @@ public class Truck {
     private int id;
     private String name;
     private String driver;
+
+    public void setDriver(Driver d) {
+        this.d = d;
+    }
+
     private String state;
     private State stateObj; // OnBase -> OnRoute
+
+    private Driver d;
 
     public int getId() {
         return id;
@@ -18,8 +25,8 @@ public class Truck {
         return name;
     }
 
-    public String getDriver() {
-        return driver;
+    public String getDriverName() {
+        return this.d.getName();
     }
 
     public String getState() {
@@ -64,7 +71,7 @@ public class Truck {
         final StringBuilder sb = new StringBuilder("Truck{");
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
-        sb.append(", driver='").append(driver).append('\'');
+        sb.append(", driver='").append(getDriverName()).append('\'');
         sb.append(", state='").append(state).append('\'');
         sb.append('}');
         return sb.toString();

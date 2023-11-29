@@ -1,3 +1,4 @@
+import model.Driver;
 import model.Truck;
 import state.OnBase;
 import state.OnRepair;
@@ -10,20 +11,37 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        Truck[] trucks = FileUtil.readFile();
+        Truck[] trucks = FileUtil.getTrucks();
+        Driver[] drivers = FileUtil.getDrivers();
         State[] states = {new OnBase(),new OnRepair(), new OnRoute()};
+
+        String fmt0  = "%-2s | %-15s | %-10s | %-8s%n";
+        String fmt1 = "%-4s | %-10s | %-5s%n";
+
+//        System.out.println(Arrays.toString(drivers));
+
+        for (int i = 0; i < trucks.length; i++) {
+            trucks[i].setDriver(drivers[i]);
+        }
 
         for (Truck truck : trucks) {
             int r = new Random().nextInt(3);
             truck.setStateObj(states[r]);
         }
 
-        String fmt = "%-2s | %-15s | %-10s | %-8s%n";
 
-        System.out.printf(fmt, "#", "bus", "driver", "state");
+        System.out.printf(fmt0, "#", "bus", "driver", "state");
         drawLine('-', 50);
         for (Truck truck : trucks) {
-            System.out.printf(fmt, truck.getId(), truck.getName(), truck.getDriver(), truck.getState());
+            System.out.printf(fmt0, truck.getId(), truck.getName(), truck.getDriverName(), truck.getState());
+        }
+
+        System.out.println();
+
+        System.out.printf(fmt1, "#", "driver",  "bus");
+        drawLine('-', 50);
+        for (Driver driver : drivers) {
+            System.out.printf(fmt1, driver.getId(),  driver.getName(), "");
         }
 
 

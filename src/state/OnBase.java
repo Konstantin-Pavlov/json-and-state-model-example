@@ -4,6 +4,7 @@ import exceptions.CustomException;
 import model.Truck;
 
 public class OnBase implements State {
+
     @Override
     public void changeDriver(Truck truck) {
         //.....
@@ -19,6 +20,7 @@ public class OnBase implements State {
     @Override
     public void startRepair(Truck truck) {
         truck.setStateObj(new OnRepair());
+        truck.setState("ремонт");
         System.out.println("успешно встали на ремонт");
     }
 }

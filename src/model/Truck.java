@@ -10,8 +10,25 @@ public class Truck {
     private String state;
     private State stateObj; // OnBase -> OnRoute
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public String getState() {
+        return state;
+    }
+
     public void setStateObj(State stateObj) {
         this.stateObj = stateObj;
+        setState(this.stateObj.getClass().getSimpleName());
     }
 
     public void setState(String state) {

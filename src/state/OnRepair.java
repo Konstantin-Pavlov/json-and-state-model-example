@@ -3,6 +3,8 @@ package state;
 import exceptions.CustomException;
 import model.Truck;
 
+import java.util.Random;
+
 public class OnRepair implements State {
     @Override
     public void changeDriver(Truck truck) throws CustomException {
@@ -11,11 +13,11 @@ public class OnRepair implements State {
 
     @Override
     public void startDriving(Truck truck) {
-        /*
-        truck.setStateObj(new OnBase)
-        ||
-        truck.setStateObj(new OnRoute)
-         */
+        if (new Random().nextBoolean()) {
+            truck.setStateObj(new OnRoute());
+        } else {
+            truck.setStateObj(new OnBase());
+        }
     }
 
     @Override

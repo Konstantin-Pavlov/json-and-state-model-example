@@ -4,12 +4,27 @@ public class Driver {
     private String id;
     private String name;
 
+    private boolean isAvalible;
+
     public String getId() {
         return id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public boolean isAvalible() {
+        return isAvalible;
+    }
+
+    public void setAvalible(boolean avalible) {
+        isAvalible = avalible;
+        if (avalible) {
+            System.out.printf("водитель %s теперь свободен%n", this.getName());
+        } else {
+            System.out.printf("водитель %s теперь за рулем%n", this.getName());
+        }
     }
 
     @Override

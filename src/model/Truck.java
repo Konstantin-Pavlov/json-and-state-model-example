@@ -8,14 +8,18 @@ public class Truck {
     private String name;
     private String driver;
 
-    public void setDriver(Driver d) {
-        this.d = d;
-    }
-
     private String state;
     private State stateObj; // OnBase -> OnRoute
 
-    private Driver d;
+    private Driver driverObj;
+
+    public void setDriver(Driver driverObj) {
+        this.driverObj = driverObj;
+    }
+
+    public Driver getDriverObj() {
+        return driverObj;
+    }
 
     public int getId() {
         return id;
@@ -26,8 +30,9 @@ public class Truck {
     }
 
     public String getDriverName() {
-        return this.d.getName();
+        return this.driverObj.getName();
     }
+
 
     public String getState() {
         return state;

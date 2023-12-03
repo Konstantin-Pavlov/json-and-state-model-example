@@ -12,9 +12,21 @@ import java.nio.file.Paths;
 
 public class FileUtil {
 
-    private FileUtil(String path) {
+    private FileUtil() {
     }
 
+    public static <T> T[] loadJsonArray(String path, Class<T[]> cls) {
+        Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+        Path PATH = Paths.get(path);
+        try {
+            String str = Files.readString(PATH);
+            return GSON.fromJson(str, cls);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     public static Truck[] getTrucks() {
         Gson GSON = new GsonBuilder().setPrettyPrinting().create();

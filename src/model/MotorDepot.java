@@ -3,9 +3,9 @@ package model;
 import util.FileUtil;
 
 public class MotorDepot {
-    private static final Driver[] drivers = FileUtil.getDrivers();
-    ;
-    private static final Truck[] trucks = FileUtil.getTrucks();
+
+    private static final Driver[] drivers = FileUtil.loadJsonArray("data/drivers.json", Driver[].class);
+    private static final Truck[] trucks = FileUtil.loadJsonArray("data/trucks.json", Truck[].class);
 
     private MotorDepot() {
 
@@ -15,6 +15,10 @@ public class MotorDepot {
         return drivers;
     }
 
+    public static Truck[] getTrucks() {
+        return trucks;
+    }
+
     public static Driver getAvalibleDriver() {
         for (Driver driver : drivers) {
             if (driver.isAvalible()) {
@@ -22,10 +26,6 @@ public class MotorDepot {
             }
         }
         return null;
-    }
-
-    public static Truck[] getTrucks() {
-        return trucks;
     }
 
 }

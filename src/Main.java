@@ -4,7 +4,6 @@ import model.Truck;
 import state.OnBase;
 import state.OnRepair;
 import state.OnRoute;
-import util.FileUtil;
 import state.State;
 
 import java.util.Arrays;
@@ -19,7 +18,7 @@ public class Main {
         String fmt0 = "%-2s | %-15s | %-10s | %-8s%n";
         String fmt1 = "%-4s | %-10s | %-5s%n";
 
-//        System.out.println(Arrays.toString(drivers));
+        System.out.println(Arrays.toString(drivers));
 
         for (int i = 0; i < trucks.length; i++) {
             trucks[i].setDriver(drivers[i]);
@@ -58,22 +57,22 @@ public class Main {
             System.out.printf("грузовик %s ведёт водитель %s%n", truck.getName(), truck.getDriverObj().getName());
         }
 
-//        System.out.printf(fmt0, "#", "bus", "driver", "state");
-//        drawLine('-', 50);
-//        for (Truck truck : trucks) {
-//            System.out.printf(fmt0, truck.getId(), truck.getName(), truck.getDriverName(), truck.getState());
-//        }
-//
-//        System.out.println();
-//
-//        System.out.printf(fmt1, "#", "driver",  "bus");
-//        drawLine('-', 50);
-//        for (Driver driver : drivers) {
-//            System.out.printf(fmt1, driver.getId(),  driver.getName(), "");
-//        }
+        System.out.printf(fmt0, "#", "bus", "driver", "state");
+        drawLine('-', 50);
+        for (Truck truck : trucks) {
+            System.out.printf(fmt0, truck.getId(), truck.getName(), truck.getDriverName(), truck.getState());
+        }
+
+        System.out.println();
+
+        System.out.printf(fmt1, "#", "driver", "bus");
+        drawLine('-', 50);
+        for (Driver driver : drivers) {
+            System.out.printf(fmt1, driver.getId(), driver.getName(), "");
+        }
 
 
-        //        Truck truck = trucks[1];
+//        Truck truck = trucks[1];
 //        truck.setStateObj(new OnBase());
 //        truck.startDriving();
 //        truck.startDriving();

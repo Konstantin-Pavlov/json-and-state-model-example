@@ -1,5 +1,6 @@
 package model;
 
+import exceptions.CustomException;
 import util.FileUtil;
 
 public class MotorDepot {
@@ -19,11 +20,15 @@ public class MotorDepot {
         return trucks;
     }
 
-    public static Driver getAvalibleDriver() {
-        for (Driver driver : drivers) {
-            if (driver.isAvalible()) {
-                return driver;
+    public static Driver getAvalibleDriver() throws CustomException {
+        if (drivers != null) {
+            for (Driver driver : drivers) {
+                if (driver.isAvailable()) {
+                    return driver;
+                }
             }
+        } else {
+            throw new CustomException("Попытка получить водителя при пустом массиве водителей");
         }
         return null;
     }

@@ -14,11 +14,11 @@ public class Driver {
         return name;
     }
 
-    public boolean isAvalible() {
+    public boolean isAvailable() {
         return isAvalible;
     }
 
-    public void setAvalible(boolean avalible) {
+    public void setAvailable(boolean avalible) {
         isAvalible = avalible;
         if (avalible) {
             System.out.printf("водитель %s теперь свободен%n", this.getName());

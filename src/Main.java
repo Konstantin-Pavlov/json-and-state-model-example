@@ -25,7 +25,7 @@ public class Main {
         System.out.println("закрепление водителей за грузовиками");
         for (int i = 0; i < trucks.length; i++) {
             trucks[i].setDriver(drivers[i]);
-            trucks[i].getDriverObj().setAvalible(false);
+            trucks[i].getDriverObj().setAvailable(false);
         }
         System.out.println();
 
@@ -35,7 +35,11 @@ public class Main {
             truck.setStateObj(states[r]);
         }
 
-        printer.run(trucks, drivers);
+//        trucks[1].setStateObj(new OnBase());
+//        trucks[1].changeDriver();
+
+
+//        printer.run(trucks, drivers);
 
 //
 //        System.out.println();

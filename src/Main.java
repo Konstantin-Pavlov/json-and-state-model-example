@@ -5,7 +5,7 @@ import state.OnBase;
 import state.OnRepair;
 import state.OnRoute;
 import state.State;
-import util.UserInputHandler;
+import util.Printer;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,9 +13,8 @@ public class Main {
         Driver[] drivers = MotorDepot.getDrivers();
         State[] states = {new OnBase(), new OnRepair(), new OnRoute()};
 
-        UserInputHandler inputHandler = new UserInputHandler();
-        inputHandler.askForTruckId();
-
+        Printer printer = new Printer();
+        printer.gerTruckInfo();
 //        String fmt0 = "%-2s | %-15s | %-10s | %-8s%n";
 //        String fmt1 = "%-4s | %-10s | %-5s%n";
 //

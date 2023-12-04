@@ -8,6 +8,7 @@ import state.State;
 import util.Printer;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,20 +23,25 @@ public class Main {
 
 //        System.out.println(Arrays.toString(drivers));
 
+        System.out.println("закрепление водителей за грузовиками");
         for (int i = 0; i < trucks.length; i++) {
             trucks[i].setDriver(drivers[i]);
             trucks[i].getDriverObj().setAvalible(false);
         }
+        System.out.println();
 
-//        printer.gerTruckInfo(trucks);
-        System.out.println(trucks[0]);
+        //  назначение грузовикам состояний случайным образом (в пути, на базе, на ремонте)
+        for (Truck truck : trucks) {
+            int r = new Random().nextInt(3);
+            truck.setStateObj(states[r]);
+        }
+
+        printer.run(trucks, drivers);
+
 //
 //        System.out.println();
 //
-//        for (Truck truck : trucks) {
-//            int r = new Random().nextInt(3);
-//            truck.setStateObj(states[r]);
-//        }
+
 //
 //
 //        trucks[0].setStateObj(new OnBase());
@@ -93,5 +99,9 @@ public class Main {
             System.out.print(fillCharacter);
         }
         System.out.println();
+    }
+
+    public static void run() {
+
     }
 }

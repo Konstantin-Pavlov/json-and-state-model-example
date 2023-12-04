@@ -7,8 +7,19 @@ import java.util.Scanner;
 class UserInputHandler {
     private final Scanner scanner = new Scanner(System.in);
 
-    public int askForTruckId() throws CustomException, NumberFormatException {
-        return checkUserInput(scanner.nextLine());
+    public int getAndCheckUserInput() {
+        int input;
+        while (true) {
+            try {
+                input = checkUserInput(scanner.nextLine());
+            } catch (CustomException | NumberFormatException e) {
+                System.out.println(e.getMessage());
+                System.out.print("Try again: ");
+                continue;
+            }
+            break;
+        }
+        return input;
 
     }
 

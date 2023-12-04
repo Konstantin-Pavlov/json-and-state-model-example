@@ -1,9 +1,10 @@
 package util;
 
 import exceptions.CustomException;
+import model.Truck;
 
 public class Printer {
-    public void gerTruckInfo() {
+    public void gerTruckInfo(Truck[] trucks) {
         UserInputHandler inputHandler = new UserInputHandler();
         int userInput = 0;
         System.out.print("enter the truck id (1-3) to see info: ");
@@ -17,7 +18,9 @@ public class Printer {
             }
             break;
         }
-        System.out.println(userInput);
+        System.out.println(trucks[userInput]);
+
+
 
     }
 }

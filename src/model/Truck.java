@@ -47,38 +47,36 @@ public class Truck {
         this.state = state;
     }
 
-    public void changeDriver(){
-        try{
+    public void changeDriver() {
+        try {
             stateObj.changeDriver(this);
-        } catch (CustomException e){
+        } catch (CustomException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void startDriving(){
-        try{
+    public void startDriving() {
+        try {
             stateObj.startDriving(this);
-        } catch (CustomException e){
+        } catch (CustomException e) {
             System.out.println(e.getMessage());
         }
     }
 
-    public void startRepair(){
-        try{
+    public void startRepair() {
+        try {
             stateObj.startRepair(this);
-        } catch (CustomException e){
+        } catch (CustomException e) {
             System.out.println(e.getMessage());
         }
     }
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Truck{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", driver='").append(getDriverName()).append('\'');
-        sb.append(", state='").append(state).append('\'');
-        sb.append('}');
-        return sb.toString();
+        String fmt = "%-10s :    %-10s%n";
+        return String.format(fmt, "#", id) +
+                String.format(fmt, "Bus", getName()) +
+                String.format(fmt, "driver", getDriverName()) +
+                String.format(fmt, "Bus state", state);
     }
 }

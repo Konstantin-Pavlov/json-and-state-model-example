@@ -7,23 +7,28 @@ import state.OnRoute;
 import state.State;
 import util.Printer;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Truck[] trucks = MotorDepot.getTrucks();
         Driver[] drivers = MotorDepot.getDrivers();
         State[] states = {new OnBase(), new OnRepair(), new OnRoute()};
-
         Printer printer = new Printer();
-        printer.gerTruckInfo();
-//        String fmt0 = "%-2s | %-15s | %-10s | %-8s%n";
-//        String fmt1 = "%-4s | %-10s | %-5s%n";
-//
+
+
+        String fmt0 = "%-2s | %-15s | %-10s | %-8s%n";
+        String fmt1 = "%-4s | %-10s | %-5s%n";
+
 //        System.out.println(Arrays.toString(drivers));
-//
-//        for (int i = 0; i < trucks.length; i++) {
-//            trucks[i].setDriver(drivers[i]);
-//            trucks[i].getDriverObj().setAvalible(false);
-//        }
+
+        for (int i = 0; i < trucks.length; i++) {
+            trucks[i].setDriver(drivers[i]);
+            trucks[i].getDriverObj().setAvalible(false);
+        }
+
+//        printer.gerTruckInfo(trucks);
+        System.out.println(trucks[0]);
 //
 //        System.out.println();
 //

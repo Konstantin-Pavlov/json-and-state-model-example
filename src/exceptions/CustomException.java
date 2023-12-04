@@ -1,6 +1,6 @@
 package exceptions;
 
-public class CustomException extends Exception{
+public class CustomException extends Exception {
     public CustomException() {
     }
 
